@@ -5,11 +5,17 @@ interface AuthBtnProps {
   title: string;
   secondary?: boolean;
   onPress: () => void;
+  disabled?: boolean;
 }
 
-const AuthBtn: React.FC<AuthBtnProps> = ({ title, secondary, onPress }) => {
+const AuthBtn: React.FC<AuthBtnProps> = ({
+  title,
+  secondary,
+  onPress,
+  disabled,
+}) => {
   return (
-    <BtnContainer {...{ secondary, onPress }}>
+    <BtnContainer {...{ secondary, onPress, disabled }}>
       <BtnText>{title}</BtnText>
     </BtnContainer>
   );

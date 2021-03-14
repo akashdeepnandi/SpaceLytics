@@ -41,10 +41,23 @@ export const AuthSlice = createSlice({
       user: null,
       isError: true,
     }),
+    removeError: (state) => ({
+      ...state,
+      isAuthenticated: false,
+      isLoading: false,
+      user: null,
+      isError: false,
+    }),
   },
 });
 
-export const { error, loading, signIn, signOut } = AuthSlice.actions;
+export const {
+  error,
+  loading,
+  signIn,
+  signOut,
+  removeError,
+} = AuthSlice.actions;
 
 export const userSignIn = (email: string, password: string): AppThunk => async (
   dispatch
@@ -55,7 +68,6 @@ export const userSignIn = (email: string, password: string): AppThunk => async (
       dispatch(signIn(JSON.stringify(user)));
     } catch (err) {
       dispatch(error());
-      console.error(err);
     }
   }
 };

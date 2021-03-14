@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Keyboard } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { Auth } from "../../App";
@@ -7,6 +7,7 @@ import { Background, Spacer } from "../../components/containers/Layout";
 import { FormError } from "../../components/Form";
 import { ContentWrapper } from "../../containers/ContentWrapper";
 import {
+  removeError,
   SelectAuth,
   signIn,
   userSignIn,
@@ -32,15 +33,33 @@ const Login: React.FC<LoginProps> = () => {
     errorEmail: false,
     errorPassword: false,
   });
+  const [disabled, setDisabled] = useState(false);
 
   const userSignUp = async () => {
     try {
+      setErrors({
+        errorEmail: false,
+        errorPassword: false,
+      });
+      if (isError) {
+        dispatch(removeError());
+      }
       const user = await Auth.createUserWithEmailAndPassword(email, password);
       dispatch(signIn(JSON.stringify(user)));
     } catch (err) {
-      console.error(err);
+      setErrors({
+        errorEmail: true,
+        errorPassword: true,
+      });
     }
+    setDisabled(false);
   };
+
+  useEffect(() => {
+    if (isError) {
+      setDisabled(false);
+    }
+  }, [isError]);
 
   return (
     <Background source={ImgSrc}>
@@ -88,31 +107,35 @@ const Login: React.FC<LoginProps> = () => {
               <AuthBtn
                 title="Signin"
                 onPress={() => {
+                  Keyboard.dismiss();
+                  setDisabled(true);
                   setErrors({
                     errorEmail: false,
                     errorPassword: false,
                   });
-                  console.log(!email || !password || password.length < 8);
+                  if (isError) {
+                    dispatch(removeError());
+                  }
                   if (!email || !password || password.length < 8) {
-                    console.log({
-                      errorEmail: !email,
-                      errorPassword: !password || password.length < 8,
-                    });
                     setErrors({
                       errorEmail: !email,
                       errorPassword: !password || password.length < 8,
                     });
+                    setDisabled(false);
                     return;
                   }
-                  Keyboard.dismiss();
                   dispatch(userSignIn(email, password));
+                  setDisabled(false);
                 }}
+                {...{ disabled }}
               />
 
               <AuthBtn
                 title="Signup"
                 secondary
                 onPress={() => {
+                  Keyboard.dismiss();
+                  setDisabled(true);
                   setErrors({
                     errorEmail: false,
                     errorPassword: false,
@@ -122,11 +145,12 @@ const Login: React.FC<LoginProps> = () => {
                       errorEmail: !email,
                       errorPassword: !password || password.length < 8,
                     });
+                    setDisabled(false);
                     return;
                   }
-                  Keyboard.dismiss();
                   userSignUp();
                 }}
+                {...{ disabled }}
               />
             </BtnGroup>
           </FieldSet>
