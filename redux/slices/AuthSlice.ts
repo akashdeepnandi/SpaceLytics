@@ -64,7 +64,6 @@ export const userSignOut = (): AppThunk => (dispatch) => {
 };
 
 export const SelectAuth = (state: RootState) => state.Auth;
-
 export default AuthSlice.reducer;
 
 // Action creators are generated for each case reducer function
