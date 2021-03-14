@@ -3,7 +3,6 @@ export const theme = {
     background: {
       dark: "#1d1e21",
       light: "#c4c4c4",
-      red: "#c24d4d",
       blue: "#0046e2",
       darkBlue: "#1a4a83",
       green: "#26a41b",
@@ -12,6 +11,8 @@ export const theme = {
       dark: "#000",
       light: "#fff",
       grey: "#a5a5a5",
+      blue: "#0046e2",
+      red: "#c24d4d",
     },
   },
   fonts: {
@@ -41,6 +42,7 @@ export const fontMixin = ({ size = "14px", color = "#fff", bold = false }) => `
 	font-size: ${size};
   font-family: ${bold ? theme.fonts.bold : theme.fonts.regular};
   color: ${color};
+  include-font-padding: false;
 `;
 
 declare module "styled-components" {

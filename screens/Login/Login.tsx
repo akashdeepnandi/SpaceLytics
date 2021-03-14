@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import AuthBtn from "../../components/buttons/AuthBtn";
+import { AuthBtn } from "../../components/buttons";
 import { Background, Spacer } from "../../components/containers/Layout";
+import { ContentWrapper } from "../../containers/ContentWrapper";
 import {
   BtnGroup,
   FieldSet,
@@ -21,7 +20,7 @@ const Login: React.FC<LoginProps> = () => {
 
   return (
     <Background source={ImgSrc}>
-      <SafeAreaView
+      <ContentWrapper
         style={{ flex: 1, justifyContent: "center", paddingHorizontal: 30 }}
       >
         <FormContainer>
@@ -54,7 +53,7 @@ const Login: React.FC<LoginProps> = () => {
             </BtnGroup>
           </FieldSet>
         </FormContainer>
-      </SafeAreaView>
+      </ContentWrapper>
     </Background>
   );
 };

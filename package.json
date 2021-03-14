@@ -8,7 +8,9 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "3.0.4",
     "@reduxjs/toolkit": "^1.5.0",
+    "date-fns": "^2.19.0",
     "expo": "~40.0.0",
     "expo-app-loading": "^1.0.1",
     "expo-font": "~8.4.0",
@@ -17,6 +19,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native-modal": "^11.7.0",
+    "react-native-modal-datetime-picker": "^9.2.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-web": "~0.13.12",
     "react-redux": "^7.2.2",
@@ -24,6 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
+    "@types/date-fns": "^2.6.0",
     "@types/react": "~16.9.35",
     "@types/react-dom": "~16.9.8",
     "@types/react-native": "~0.63.2",
