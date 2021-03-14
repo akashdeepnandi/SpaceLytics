@@ -3,7 +3,9 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
+import { Provider } from "react-redux";
 import AppLoading from "expo-app-loading";
+import { store } from "./redux/store";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -13,7 +15,7 @@ export default function App() {
   if (!loaded) return <AppLoading />;
 
   return (
-    <>
+    <Provider store={store}>
       <StatusBar style="auto" />
       <SafeAreaProvider>
         <View style={styles.container}>
@@ -25,7 +27,7 @@ export default function App() {
           </Text>
         </View>
       </SafeAreaProvider>
-    </>
+    </Provider>
   );
 }
 

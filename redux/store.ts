@@ -1,26 +1,17 @@
-import { createStore } from "redux";
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { AuthReducer, LaunchReducer } from "./slices";
 
-interface Action {
-  type: "counter/incremented" | "counter/decremented";
-}
-function counterReducer(state = { value: 0 }, action: Action) {
-  switch (action.type) {
-    case "counter/incremented":
-      return { value: state.value + 1 };
-    case "counter/decremented":
-      return { value: state.value - 1 };
-    default:
-      return state;
-  }
-}
+export const store = configureStore({
+  reducer: {
+    Auth: AuthReducer,
+    Launch: LaunchReducer,
+  },
+});
 
-let store = createStore(counterReducer);
-
-store.subscribe(() => console.log(store.getState()));
-
-store.dispatch({ type: "counter/incremented" });
-// {value: 1}
-store.dispatch({ type: "counter/incremented" });
-// {value: 2}
-store.dispatch({ type: "counter/decremented" });
-// {value: 1}
+export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;
