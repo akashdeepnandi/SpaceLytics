@@ -1,11 +1,11 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { userSignOut } from "../../../redux/reducers/AuthReducer";
 import { SignoutBtn } from "../../buttons";
 import { Row, Spacer } from "../../containers/Layout";
 import { CalenderInput } from "../../inputs";
-import { LaunchItem } from "../../Launch";
 import {
   ActionBarContainer,
-  FieldLabel,
   FieldSet,
   FilterContainer,
   FilterText,
@@ -18,12 +18,13 @@ import {
 interface DashboardHeaderProps {}
 
 const DashboardHeader: React.FC<DashboardHeaderProps> = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <Header>
         <HeaderTitle>Dashboard</HeaderTitle>
         <SigoutBtnContainer>
-          <SignoutBtn />
+          <SignoutBtn onPress={() => dispatch(userSignOut())} />
         </SigoutBtnContainer>
       </Header>
       <ActionBarContainer>

@@ -2084,6 +2084,11 @@
   dependencies:
     invariant "^2.2.4"
 
+"@react-native-firebase/auth@^11.1.0":
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-11.1.0.tgz#83d7651b5ce74af408d0d6b8207f61d6308d1c0e"
+  integrity sha512-53emDL/7Onhv2w3tLQMGsGjes/RsyYvI2XKW2e9vrGOmN43lIvDBjbnMS1ChnEPgNTSjuYJAmoZJMdUjKEHBSw==
+
 "@reduxjs/toolkit@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.5.0.tgz#1025c1ccb224d1fc06d8d98a61f6717d57e6d477"

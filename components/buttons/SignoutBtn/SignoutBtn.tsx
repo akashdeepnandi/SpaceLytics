@@ -1,12 +1,13 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { SimpleLineIcons } from "@expo/vector-icons";
-import { theme } from "../../../theme";
-interface SignoutProps {}
+interface SignoutProps {
+  onPress: () => void;
+}
 
-const SignoutBtn: React.FC<SignoutProps> = () => {
+const SignoutBtn: React.FC<SignoutProps> = ({ onPress }) => {
   return (
-    <TouchableOpacity onPress={() => console.log("clicked logout")}>
+    <TouchableOpacity {...{ onPress }}>
       <SimpleLineIcons name="logout" size={20} color="#fff" />
     </TouchableOpacity>
   );
