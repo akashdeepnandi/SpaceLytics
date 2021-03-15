@@ -13,12 +13,7 @@ LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
 LogBox.ignoreAllLogs();
 
 const firebaseConfig = {
-  apiKey: "AIzaSyByVHZb7CRPNrUmk8pUqFS0yVb9zOqsfiQ",
-  authDomain: "spacelytics-afafb.firebaseapp.com",
-  projectId: "spacelytics-afafb",
-  storageBucket: "spacelytics-afafb.appspot.com",
-  messagingSenderId: "701477193829",
-  appId: "1:701477193829:web:fd54849c0745f415fb9e8c",
+  // Add your firebaseConfig here...
 };
 
 if (!firebase.apps.length) {
