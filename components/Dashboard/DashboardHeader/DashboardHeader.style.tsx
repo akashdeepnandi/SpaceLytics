@@ -74,3 +74,9 @@ export const FieldSet = styled(Row)`
 export const FieldLabel = styled.Text`
   ${({ theme: { size } }) => fontMixin({ size: size.fonts.lg })}
 `;
+
+export const ButtonGroup = styled(Row)`
+  justify-content: space-between;
+  padding-horizontal: 20px;
+  margin-top: 30px;
+`;

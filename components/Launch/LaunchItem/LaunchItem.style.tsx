@@ -28,8 +28,9 @@ export const LaunchDate = styled.Text`
   background-color: ${({ theme: { colors } }) => colors.background.light};
   ${({ theme: { size, colors } }) =>
     fontMixin({ size: size.fonts.xs, color: colors.font.blue })}
-  padding-horizontal: 15px;
   padding-vertical: 3px;
   border-radius: 5px;
   include-font-padding: false;
+  width: 100px;
+  text-align: center;
 `;

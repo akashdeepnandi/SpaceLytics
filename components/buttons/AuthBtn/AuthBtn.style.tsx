@@ -9,7 +9,7 @@ export const BtnContainer = styled.TouchableOpacity<{
     !secondary
       ? theme.colors.background.darkBlue
       : theme.colors.background.green};
-  padding-horizontal: 50px;
+  width: 45%;
   padding-vertical: 8px;
   ${shadowMixin(4)}
   border-radius: 10px;
@@ -17,4 +17,5 @@ export const BtnContainer = styled.TouchableOpacity<{
 
 export const BtnText = styled.Text`
   ${fontMixin({ bold: true })}
+  text-align: center;
 `;

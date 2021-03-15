@@ -10,10 +10,15 @@ import { format } from "date-fns";
 import { Row, Spacer } from "../../containers/Layout";
 interface CalenderInputProps {
   label: string;
+  date: Date | null;
+  handleDateSelect: (value: Date) => void;
 }
 
-const CalenderInput: React.FC<CalenderInputProps> = ({ label }) => {
-  const [date, setDate] = useState<Date | null>(null);
+const CalenderInput: React.FC<CalenderInputProps> = ({
+  label,
+  date,
+  handleDateSelect,
+}) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const showDatePicker = () => {
@@ -25,8 +30,7 @@ const CalenderInput: React.FC<CalenderInputProps> = ({ label }) => {
   };
 
   const handleConfirm = (value: Date) => {
-    console.log("A date has been picked: ", value);
-    setDate(value);
+    handleDateSelect(value);
     hideDatePicker();
   };
   return (
@@ -48,6 +52,7 @@ const CalenderInput: React.FC<CalenderInputProps> = ({ label }) => {
           mode="date"
           onConfirm={handleConfirm}
           onCancel={hideDatePicker}
+          isDarkModeEnabled={true}
         />
       </CalenderWrapper>
     </Row>

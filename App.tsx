@@ -8,6 +8,9 @@ import { store } from "./redux/store";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
 import firebase from "firebase";
+import { LogBox } from "react-native";
+LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+LogBox.ignoreAllLogs();
 
 const firebaseConfig = {
   apiKey: "AIzaSyByVHZb7CRPNrUmk8pUqFS0yVb9zOqsfiQ",
