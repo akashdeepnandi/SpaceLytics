@@ -11,6 +11,7 @@ import { AuthBtn, SignoutBtn } from "../../buttons";
 import { Row, Spacer } from "../../containers/Layout";
 import { FormError } from "../../Form";
 import { CalenderInput } from "../../inputs";
+import { UserInfo } from "../../User";
 import {
   ActionBarContainer,
   ButtonGroup,
@@ -53,6 +54,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
           <SignoutBtn onPress={() => dispatch(userSignOut())} />
         </SigoutBtnContainer>
       </Header>
+      <UserInfo />
       <ActionBarContainer>
         <Heading>Launches</Heading>
         <Row>
